@@ -4,6 +4,7 @@ services:
     image: nginx:1.21
     ports:
       - "446:80"
+      - "447:443"
     volumes:
       - ./html:/usr/share/nginx/html:ro
       - ./nginx:/etc/nginx/
