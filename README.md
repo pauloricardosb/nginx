@@ -33,7 +33,7 @@ d43a4a21f83c   nginx:1.21   "/docker-entrypoint.…"   4 minutes ago   Up 4 minu
 ```
 
 <aside>
-💡 Até a presente etapada do processo, nós orquestramos um container com a imagem do Nginx via Docker Compose e atribuímos a porta do container à porta da nossa máquina real. Sendo ambas a porta 80!
+💡 Até a presente etapa do processo, nós orquestramos um container com a imagem do Nginx via Docker Compose e atribuímos a porta do container à porta da nossa máquina real. Sendo ambas a porta 80!
 
 </aside>
 
