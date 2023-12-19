@@ -61,8 +61,8 @@ d43a4a21f83c   nginx:1.21   "/docker-entrypoint.…"   4 minutes ago   Up 4 minu
 
     <footer>
       created by
-      <a href="https://www.github.com/pauloricardosb" target="_blank"
-        >Paulo Ricardo</a
+      <a href="website here" target="_blank"
+        >owner name here</a
       >
     </footer>
   </body>
@@ -92,7 +92,7 @@ services:
 > 
 
 ```bash
-$ docker run -it --rm --name=nginx -p 446:80 -v $(pwd):/data nginx:1.21 sh
+$ docker run -it --rm --name=nginx -p 80:80 -v $(pwd):/data nginx:1.21 sh
 
 cd /etc
 cp -R nginx /data
@@ -104,7 +104,7 @@ cp -R nginx /data
 1. Dentro do nosso diretório, usaremos o seguinte comando
 
 ```bash
-openssl req -newkey rsa:4096 -nodes -sha256 -keyout 192.168.1.172.key -x509 -days 365 -out 192.168.1.172.crt
+openssl req -newkey rsa:4096 -nodes -sha256 -keyout YOURIP.key -x509 -days 365 -out YOURIP.crt
 ```
 
 > A saída será um pequeno formulário para preencher pelo terminal como abaixo
@@ -114,7 +114,7 @@ openssl req -newkey rsa:4096 -nodes -sha256 -keyout 192.168.1.172.key -x509 -day
 Generating a RSA private key
 ..............................................................++++
 ...................................................................................................................................................................++++
-writing new private key to '192.168.1.172.key'
+writing new private key to 'YOURIP.key'
 -----
 You are about to be asked to enter information that will be incorporated
 into your certificate request.
@@ -123,13 +123,13 @@ There are quite a few fields but you can leave some blank
 For some fields there will be a default value,
 If you enter '.', the field will be left blank.
 -----
-Country Name (2 letter code) [AU]:BR
-State or Province Name (full name) [Some-State]:Rio de Janeiro
-Locality Name (eg, city) []:Petropolis
-Organization Name (eg, company) [Internet Widgits Pty Ltd]:Tmaior
-Organizational Unit Name (eg, section) []:Tmaior
-Common Name (e.g. server FQDN or YOUR name) []:192.168.1.172
-Email Address []: your@email
+Country Name (2 letter code) [AU]: BR
+State or Province Name (full name) [Some-State]: UF
+Locality Name (eg, city) []: CITY
+Organization Name (eg, company) [Internet Widgits Pty Ltd]: COMPANY
+Organizational Unit Name (eg, section) []: COMPANY
+Common Name (e.g. server FQDN or YOUR name) []: YOUR IP
+Email Address []: YOUR EMAIL
 ```
 
 > Com a chave gerada, basta adicionar as informações aos arquivos de configurações!
@@ -150,8 +150,8 @@ server {
     listen       443 ssl;
     server_name  192.168.1.172;
 
-    ***ssl_certificate      /cert/192.168.1.172.crt;
-    ssl_certificate_key  /cert/192.168.1.172.key;***
+    ***ssl_certificate      /cert/YOURIP.crt;
+    ssl_certificate_key  /cert/YOURIP.key;***
 
     #access_log  /var/log/nginx/host.access.log  main;
 
